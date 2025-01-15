@@ -1,1 +1,7 @@
 client_secret_*.json
+venv
+.env
+
+__pycache__/
+*.py[cod]
+*$py.class
