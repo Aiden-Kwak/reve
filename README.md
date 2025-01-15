@@ -38,7 +38,76 @@ accountapp # 계정
 timetableapp # 시간표 관리를 위함
 ```
 
-- timetable db schema
+- timetable model 임시 고안
+```python
+from django.db import models
+from django.contrib.auth.models import User
+
+
+class DanceClass(models.Model):
+    CLASS_TYPES = [
+        ('ballet', 'Ballet'),
+        ('modern', 'Modern Dance'),
+        ('korean', 'Korean Dance'),
+    ]
+    LEVELS = [
+        ('basic', 'Basic'),
+        ('performance', 'Performance'),
+    ]
+
+    name = models.CharField(max_length=100)
+    class_type = models.CharField(max_length=20, choices=CLASS_TYPES)
+    level = models.CharField(max_length=20, choices=LEVELS)
+
+    def __str__(self):
+        return f"{self.get_class_type_display()} - {self.get_level_display()}"
+
+
+class Student(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.name
+
+
+class TimetableSlot(models.Model):
+    DAYS_OF_WEEK = [
+        ('sun', 'Sunday'),
+        ('mon', 'Monday'),
+        ('tue', 'Tuesday'),
+        ('wed', 'Wednesday'),
+        ('thu', 'Thursday'),
+        ('fri', 'Friday'),
+        ('sat', 'Saturday'),
+    ]
+
+    day = models.CharField(max_length=3, choices=DAYS_OF_WEEK)
+    time = models.TimeField()  # 디스크리트하게 시간을 구성하기로 했지만 디비상에서는 타임필드로 관리하고 프론트에서 디스크리트하게 입력된 결과를 뷰에서 처리하는 식으로 하는게 나중 생각했을때 좋을 듯.
+    dance_class = models.ForeignKey(DanceClass, on_delete=models.CASCADE, related_name='slots', null=True, blank=True)
+    students = models.ManyToManyField(Student, through='Enrollment', blank=True)
+
+    class Meta:
+        unique_together = ('day', 'time')
+
+    def __str__(self):
+        return f"{self.get_day_display()} {self.time.strftime('%H:%M')}"
+
+
+class Enrollment(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    timetable_slot = models.ForeignKey(TimetableSlot, on_delete=models.CASCADE)
+    enrollment_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('student', 'timetable_slot')
+
+    def __str__(self):
+        return f"{self.student.name} in {self.timetable_slot}"
+
+
+```
 
 - 고민점
 1. 타임테이블 다수 사용자 동시접근해 공유자원 사용시 데드락 가능성.
