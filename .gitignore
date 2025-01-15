@@ -1,6 +1,7 @@
 client_secret_*.json
 venv
 .env
+*.sqlite3
 
 __pycache__/
 *.py[cod]

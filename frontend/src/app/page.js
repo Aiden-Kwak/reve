@@ -23,7 +23,7 @@ export default function Home() {
         <div className={styles.ctas}>
           <a
             className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+            href="http://localhost:8000/api/accountapp/auth/login/?next=http://localhost:3000/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -34,7 +34,7 @@ export default function Home() {
               width={20}
               height={20}
             />
-            Deploy now
+            임시 로그인
           </a>
           <a
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
