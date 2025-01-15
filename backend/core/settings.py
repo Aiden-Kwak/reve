@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     #### CORS ####
     "corsheaders",
+
+    #### apps ####
+    "accountapp",
+    "timemanageapp"
 ]
 
 MIDDLEWARE = [
