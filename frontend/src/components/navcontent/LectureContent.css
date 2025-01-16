@@ -11,9 +11,9 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2열 */
     grid-template-rows: repeat(2, 1fr); /* 2행 */
-    gap: 20px; /* 카드 간격 */
+    gap: 40px; /* 카드 간격 */
     width: 100%;
-    max-width: 600px; /* 최대 너비 */
+    max-width: 1000px; /* 최대 너비 */
     aspect-ratio: 1; /* 정사각형 그리드 유지 */
   }
   
@@ -21,7 +21,7 @@
   .teacher-card {
     background-color: #f9f9f9; /* 카드 배경 */
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 1rem;
     overflow: hidden;
     text-align: center;
     display: flex;
@@ -41,18 +41,28 @@
     width: 100%; /* 이미지 너비 100% */
     height: 100%; /* 고정 높이 */
     object-fit: cover; /* 이미지 크기 조정 */
+    image-rendering: crisp-edges; /* 기본 브라우저 */
+    image-rendering: -moz-crisp-edges; /* Firefox */
+    image-rendering: -o-crisp-edges; /* Opera */
+    image-rendering: -webkit-optimize-contrast; /* Webkit (비표준) */
   }
   
   /* 빈칸 스타일 */
   .empty-slot {
-    background-color: #007bff;
+    background: linear-gradient(45deg, #7E3B98, #ffe9f4);
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 18px;
+    font-size: 2rem;
     font-weight: bold;
     border-radius: 8px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  .empty-slot:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
