@@ -47,7 +47,7 @@ function MainForm() {
       0.4,
       0.85
     );
-    composer.addPass(unrealBloom);
+    //composer.addPass(unrealBloom);
     unrealBloom.renderToScreen = true;
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 1);
