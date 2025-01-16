@@ -3,6 +3,10 @@
 import React, { useState } from "react";
 import "./InnerNavForm.css";
 import LectureContent from "./navcontent/lectureContent";
+import LocationContent from "./navcontent/locationContent";
+import PassContent from "./navcontent/passContent";
+import QnaContent from "./navcontent/qnaContent";
+import TimetableContent from "./navcontent/timetableContent";
 
 function InnerNavContent() {
   const [selectedTab, setSelectedTab] = useState("lecture");
@@ -12,13 +16,13 @@ function InnerNavContent() {
       case "lecture":
         return <LectureContent />;
       case "timetable":
-        return <div>시간표 내용이 표시됩니다.</div>;
+        return <TimetableContent />;
       case "pass":
-        return <div>수강권 내용이 표시됩니다.</div>;
+        return <PassContent />;
       case "location":
-        return <div>장소 내용이 표시됩니다.</div>;
+        return <LocationContent />;
       case "qna":
-        return <div>QnA 내용이 표시됩니다.</div>;
+        return <QnaContent />;
       default:
         return <div>선택된 탭이 없습니다.</div>;
     }
