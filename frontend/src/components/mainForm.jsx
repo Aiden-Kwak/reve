@@ -67,8 +67,8 @@ function MainForm() {
             object.material.opacity = 1.2;
           }
         });
-        gltf.scene.position.set(0, 40, 0); // 모델을 화면 중앙으로 이동
-        gltf.scene.scale.set(10, 10, 10); // 모델 크기 조정
+        gltf.scene.position.set(0, 35, 0); // 모델을 화면 중앙으로 이동
+        gltf.scene.scale.set(10, 15, 10); // 모델 크기 조정
         group.add(gltf.scene);
       },
       undefined,
@@ -139,7 +139,7 @@ function MainForm() {
     <div className="canvas-container">
       <canvas ref={canvasRef} />
       <div className="text-overlay">
-        <p>대학생들을 위한,</p>
+        <p>대학생, 직장인을 위한,</p>
         <p>방과후 무용클래스 <span className="/root-color">Rêve</span></p>
         <p className="apply-button">클래스 신청하기</p>
       </div>

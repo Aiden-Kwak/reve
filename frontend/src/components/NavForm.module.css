@@ -20,7 +20,7 @@
 }
 
 .logo {
-  font-size: 24px; /* 로고 텍스트 크기 */
+  font-size: 2.5rem; /* 로고 텍스트 크기 */
   font-weight: bold; /* 굵은 글꼴 */
   text-align: center; /* 가운데 정렬 */
   flex: 1; /* 가운데 배치 */
