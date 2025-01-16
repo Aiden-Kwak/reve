@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import "./InnerNavForm.css";
+import LectureContent from "./navcontent/lectureContent";
 
 function InnerNavContent() {
   const [selectedTab, setSelectedTab] = useState("lecture");
@@ -9,7 +10,7 @@ function InnerNavContent() {
   const renderContent = () => {
     switch (selectedTab) {
       case "lecture":
-        return <div>강의 내용이 표시됩니다.</div>;
+        return <LectureContent />;
       case "timetable":
         return <div>시간표 내용이 표시됩니다.</div>;
       case "pass":
@@ -26,23 +27,38 @@ function InnerNavContent() {
   return (
     <div>
       <div className="innernav-container">
-        <span className="inner-btn" onClick={() => setSelectedTab("lecture")}>
+        <span
+          className={`inner-btn ${selectedTab === "lecture" ? "selected" : ""}`}
+          onClick={() => setSelectedTab("lecture")}
+        >
           강의
         </span>
         |
-        <span className="inner-btn" onClick={() => setSelectedTab("timetable")}>
+        <span
+          className={`inner-btn ${selectedTab === "timetable" ? "selected" : ""}`}
+          onClick={() => setSelectedTab("timetable")}
+        >
           시간표
         </span>
         |
-        <span className="inner-btn" onClick={() => setSelectedTab("pass")}>
+        <span
+          className={`inner-btn ${selectedTab === "pass" ? "selected" : ""}`}
+          onClick={() => setSelectedTab("pass")}
+        >
           수강권
         </span>
         |
-        <span className="inner-btn" onClick={() => setSelectedTab("location")}>
+        <span
+          className={`inner-btn ${selectedTab === "location" ? "selected" : ""}`}
+          onClick={() => setSelectedTab("location")}
+        >
           장소
         </span>
         |
-        <span className="inner-btn" onClick={() => setSelectedTab("qna")}>
+        <span
+          className={`inner-btn ${selectedTab === "qna" ? "selected" : ""}`}
+          onClick={() => setSelectedTab("qna")}
+        >
           QnA
         </span>
       </div>

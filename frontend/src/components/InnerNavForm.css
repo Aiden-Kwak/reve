@@ -9,7 +9,14 @@
     cursor: pointer;
 }
 
+.innernav-container .inner-btn {
+    transition: background-color 0.5s ease-in-out;
+}
+
 .innernav-container .inner-btn:hover {
     color: #7E3B98;
-    transition: background-color 0.5s ease-in-out;
+}
+
+.innernav-container .inner-btn.selected {
+    color: #7E3B98;
 }
