@@ -8,6 +8,24 @@ importers:
 
   .:
     dependencies:
+      EffectComposer:
+        specifier: link:three/examples/jsm/postprocessing/EffectComposer
+        version: link:three/examples/jsm/postprocessing/EffectComposer
+      GLTFLoader:
+        specifier: link:three/examples/jsm/loaders/GLTFLoader
+        version: link:three/examples/jsm/loaders/GLTFLoader
+      OrbitControls:
+        specifier: link:three/examples/jsm/controls/OrbitControls
+        version: link:three/examples/jsm/controls/OrbitControls
+      RenderPass:
+        specifier: link:three/examples/jsm/postprocessing/RenderPass
+        version: link:three/examples/jsm/postprocessing/RenderPass
+      ShaderPass:
+        specifier: link:three/examples/jsm/postprocessing/ShaderPass
+        version: link:three/examples/jsm/postprocessing/ShaderPass
+      UnrealBloomPass:
+        specifier: link:three/examples/jsm/postprocessing/UnrealBloomPass
+        version: link:three/examples/jsm/postprocessing/UnrealBloomPass
       axios:
         specifier: ^1.7.9
         version: 1.7.9
@@ -23,6 +41,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
+      three:
+        specifier: ^0.172.0
+        version: 0.172.0
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
@@ -1365,6 +1386,9 @@ packages:
   tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
     engines: {node: '>=6'}
+
+  three@0.172.0:
+    resolution: {integrity: sha512-6HMgMlzU97MsV7D/tY8Va38b83kz8YJX+BefKjspMNAv0Vx6dxMogHOrnRl/sbMIs3BPUKijPqDqJ/+UwJbIow==}
 
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
@@ -3008,6 +3032,8 @@ snapshots:
   supports-preserve-symlinks-flag@1.0.0: {}
 
   tapable@2.2.1: {}
+
+  three@0.172.0: {}
 
   to-regex-range@5.0.1:
     dependencies:

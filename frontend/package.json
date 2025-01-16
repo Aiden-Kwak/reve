@@ -9,11 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "EffectComposer": "link:three/examples/jsm/postprocessing/EffectComposer",
+    "GLTFLoader": "link:three/examples/jsm/loaders/GLTFLoader",
+    "OrbitControls": "link:three/examples/jsm/controls/OrbitControls",
+    "RenderPass": "link:three/examples/jsm/postprocessing/RenderPass",
+    "ShaderPass": "link:three/examples/jsm/postprocessing/ShaderPass",
+    "UnrealBloomPass": "link:three/examples/jsm/postprocessing/UnrealBloomPass",
     "axios": "^1.7.9",
     "next": "15.1.4",
     "react": "^19.0.0",
     "react-cookie": "^7.2.2",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "three": "^0.172.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

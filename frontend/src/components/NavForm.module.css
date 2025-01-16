@@ -16,6 +16,7 @@
 .loginText {
   font-size: 16px; /* 로그인 텍스트 크기 */
   cursor: pointer;
+  margin-left: auto;
 }
 
 .logo {

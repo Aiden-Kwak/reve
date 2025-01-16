@@ -1,0 +1,37 @@
+.canvas-container {
+  position: relative;
+  width: 100%; /* 전체 너비 */
+  height: 500px; /* 원하는 높이 설정 */
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  width: 100%; /* 컨테이너 너비에 맞춤 */
+  height: 40vh!important;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 30%; /* 세로 중앙 */
+  left: 50%; /* 가로 중앙 */
+  transform: translate(-50%, -50%); /* 중앙 정렬 */
+  color: #ffffff; /* 텍스트 색상 */
+  font-size: 2rem; /* 텍스트 크기 */
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 텍스트 그림자 */
+  z-index: 2; /* 캔버스 위에 표시 */
+}
+
+.text-overlay .apply-button {
+  margin-top: 2rem;
+  text-align: center;
+  color: #ffffff; /* 버튼 텍스트 색상 */
+  font-size: 1rem; /* 버튼 텍스트 크기 */
+  padding: 8px 16px; /* 버튼 내부 여백 */
+  border: 1px solid #ffffff; /* 테두리 */
+  border-radius: 4px; /* 버튼 모서리 둥글게 */
+  cursor: pointer; /* 클릭 가능 표시 */
+  transition: background-color 0.3s ease-in-out; /* 배경색 전환 효과 */
+}
+  
