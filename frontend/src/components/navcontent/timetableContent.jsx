@@ -71,20 +71,28 @@ function TimetableContent({ schedules }) {
     router.push(`/class/enroll?selectedGenre=${selectedGenre}&selectedLevel=${selectedLevel}`);
   };
 
-  // 요일과 시간대별 지원자 수를 찾는 함수
+
   const getEnrollmentCount = (day, timeSlot) => {
     const courseData = enrollmentData.find((course) => {
       return course.category === selectedGenre && course.level === selectedLevel;
     });
-
-    if (!courseData) return 0;
-
+  
+    if (!courseData) return "0명/4명"; // 기본값으로 0명/4명 반환
+  
     const timeData = courseData.times.find(
       (time) => time.day === day && time.time === timeSlot
     );
-
-    return timeData ? timeData.enrollment_count : 0;
+  
+    const enrollmentCount = timeData ? timeData.enrollment_count : 0;
+  
+    const maxEnrollment = 4; // 최대 수용 인원수 설정
+    if (enrollmentCount >= maxEnrollment) {
+      return `${enrollmentCount}명/${enrollmentCount + 1}명`; // n명/n+1명
+    }
+  
+    return `${enrollmentCount}명/${maxEnrollment}명`; // n명/4명
   };
+  
 
   return (
     <div className={styles.timetableContainer}>
@@ -151,7 +159,7 @@ function TimetableContent({ schedules }) {
                   ) ? styles.selected : ""}`}
                   onClick={() => handleTimeSelection(day, timeSlot)}
                 >
-                  {timeSlot} ({getEnrollmentCount(day, timeSlot)}명)
+                  {timeSlot} ({getEnrollmentCount(day, timeSlot)})
                 </button>
               ))}
             </div>
