@@ -172,4 +172,89 @@
     background-color: #7e3b98;
     color: white;
 }
+
+
+/* 시간표 테이블 */
+.scheduleTable {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5개의 열 (요일) */
+    gap: 10px;
+    margin-top: 20px;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 각 요일 행 */
+  .scheduleRow {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  /* 요일 텍스트 */
+  .scheduleRow span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* 시간 버튼 */
+  .timeSlotButton {
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    color: #333;
+    font-size: 0.9rem;
+  }
+  
+  /* 시간 버튼 hover 시 */
+  .timeSlotButton:hover {
+    background-color: #7e3b98;
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  /* 시간 버튼 선택된 상태 
+  .selected {
+    background-color: #7e3b98;
+    color: white;
+  }*/
+  
+  /* 시간대별 지원자 수 표시 */
+  .timeSlotButton span {
+    font-size: 0.8rem;
+    color: #555;
+    display: block;
+    margin-top: 5px;
+  }
+  
+  /* 지원자 수가 0일 때 색상 변경 */
+  .timeSlotButton.noEnrollments {
+    background-color: #e0e0e0;
+    color: #bbb;
+  }
+  
+  /* 테이블에 여백 추가 */
+  .scheduleTable > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 테이블 레이아웃: 요일과 시간대 */
+  .scheduleRow > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  
   
