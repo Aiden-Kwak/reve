@@ -6,7 +6,7 @@ import LectureContent from "./navcontent/lectureContent";
 import LocationContent from "./navcontent/locationContent";
 import PassContent from "./navcontent/passContent";
 import QnaContent from "./navcontent/qnaContent";
-import TimetableContent from "./navcontent/timetableContent";
+import TimetablePage from "./navcontent/timetablePage";
 
 function InnerNavContent() {
   const [selectedTab, setSelectedTab] = useState("lecture");
@@ -16,7 +16,7 @@ function InnerNavContent() {
       case "lecture":
         return <LectureContent />;
       case "timetable":
-        return <TimetableContent />;
+        return <TimetablePage />;
       case "pass":
         return <PassContent />;
       case "location":
