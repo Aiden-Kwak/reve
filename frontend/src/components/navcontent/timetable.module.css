@@ -257,6 +257,13 @@
     gap: 5px;
   }
 
+  .timeSlotButton.enrolled {
+    background-color: #e0f7fa;
+    border-color: #26c6da;
+    color: #00796b;
+  }
+  
+
 
   @media (max-width: 785px) {
     .header {

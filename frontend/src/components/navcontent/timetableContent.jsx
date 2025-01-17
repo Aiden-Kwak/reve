@@ -154,13 +154,27 @@ function TimetableContent({ schedules }) {
                 <button
                   type="button"
                   key={timeSlot}
-                  className={`${styles.timeSlotButton} ${selectedTimes.some(
-                    (t) => t.day === day && t.time === timeSlot
-                  ) ? styles.selected : ""}`}
+                  className={`${styles.timeSlotButton} ${
+                    selectedTimes.some((t) => t.day === day && t.time === timeSlot)
+                      ? styles.selected
+                      : ""
+                  } ${
+                    enrollmentData.some(
+                      (course) =>
+                        course.category === selectedGenre &&
+                        course.level === selectedLevel &&
+                        course.times.some(
+                          (time) => time.day === day && time.time === timeSlot && time.enrollment_count > 0
+                        )
+                    )
+                      ? styles.enrolled
+                      : ""
+                  }`}
                   onClick={() => handleTimeSelection(day, timeSlot)}
                 >
                   {timeSlot} ({getEnrollmentCount(day, timeSlot)})
                 </button>
+              
               ))}
             </div>
           ))}
