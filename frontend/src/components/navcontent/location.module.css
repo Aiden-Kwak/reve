@@ -1,0 +1,37 @@
+.locationContainer {
+    padding: 2rem;
+    background-color: #f9f9f9;
+  }
+  
+  .locationHeader {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #7E3B98;
+  }
+  
+  .locationItem {
+    margin-bottom: 2rem;
+  }
+  
+  .locationTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .locationAddress {
+    margin-bottom: 1rem;
+    color: #555;
+  }
+  
+  .mapContainer {
+    margin-top: 1rem;
+  }
+
+  .notice {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
