@@ -30,9 +30,9 @@ function TimetableContent({ schedules }) {
   };
 
   const handleEnrollClick = () => {
-    router.push(`/class/enroll?selectedGenre=${selectedGenre}&selectedLevel=${selectedLevel}`);
-  };
-  
+  router.push(`/class/enroll?selectedGenre=${selectedGenre}&selectedLevel=${selectedLevel}`);
+};
+
 
   return (
     <div className={styles.timetableContainer}>

@@ -1,44 +1,52 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation"; // next/navigation에서 useRouter 사용
+import { useRouter, useSearchParams } from "next/navigation";
 import apiClient from "@/utils/axios";
+import styles from "./enrollment.module.css";
 
 function EnrollmentForm() {
-  const [category, setCategory] = useState("ballet");
-  const [level, setLevel] = useState("basic");
+  const [category, setCategory] = useState("");
+  const [level, setLevel] = useState("");
   const [times, setTimes] = useState([["10:00", "12:00"]]);
   const [route, setRoute] = useState(1); // integer
   const [location, setLocation] = useState(""); // optional
   const [contact, setContact] = useState("");
   const router = useRouter();
+  const searchParams = useSearchParams();
 
-  const [selectedGenre, setSelectedGenre] = useState("");
-  const [selectedLevel, setSelectedLevel] = useState("");
+  const [sliderValue, setSliderValue] = useState(0);
 
   useEffect(() => {
-    // router.query가 준비되었을 때만 쿼리 값을 설정
-    if (router.isReady) {
-      const { selectedGenre, selectedLevel } = router.query;
-      if (selectedGenre && selectedLevel) {
-        setSelectedGenre(selectedGenre);
-        setSelectedLevel(selectedLevel);
+    // 쿼리 파라미터가 있을 때만 설정
+    const selectedGenre = searchParams.get("selectedGenre");
+    const selectedLevel = searchParams.get("selectedLevel");
+
+    if (selectedGenre && selectedLevel) {
+      setCategory(selectedGenre);
+      setLevel(selectedLevel);
+
+      if (selectedGenre === "ballet") {
+        setSliderValue(0);
+      } else if (selectedGenre === "modern") {
+        setSliderValue(50);
+      } else {
+        setSliderValue(100);
       }
     }
-  }, [router.isReady, router.query]); // router.isReady와 router.query가 변경되었을 때 실행
+  }, [searchParams]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // 전화번호가 없으면 구글 로그인에서 받은 이메일로 설정
     if (!contact) {
       const userEmail = "user@example.com"; // TODO: 구글 로그인에서 받은 이메일로 설정
       setContact(userEmail);
     }
 
     const data = {
-      category: selectedGenre,
-      level: selectedLevel,
+      category,
+      level,
       times,
       route,
       location,
@@ -53,23 +61,61 @@ function EnrollmentForm() {
     }
   };
 
+  const handleSliderChange = (e) => {
+    const value = e.target.value;
+    if (value < 33) {
+      setCategory("ballet");
+    } else if (value < 67) {
+      setCategory("modern");
+    } else {
+      setCategory("korean");
+    }
+  };
+
+  const toggleLevel = () => {
+    setLevel((prev) => (prev === "basic" ? "performance" : "basic"));
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.formContainer}>
       <label>
         카테고리:
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
-          <option value="ballet">발레</option>
-          <option value="modern">현대무용</option>
-          <option value="korea">한국무용</option>
-        </select>
+        <div className={styles.sliderContainer}>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            step="1"
+            value={sliderValue}
+            className={styles.slider}
+            onChange={handleSliderChange}
+          />
+          <div className={styles.labels}>
+            <span>발레</span>
+            <span>현대무용</span>
+            <span>한국무용</span>
+          </div>
+        </div>
       </label>
 
       <label>
         레벨:
-        <select value={level} onChange={(e) => setLevel(e.target.value)}>
-          <option value="basic">입문반</option>
-          <option value="performance">작품반</option>
-        </select>
+        <div className={styles.labelWrapper}>
+          <button
+            type="button"
+            onClick={toggleLevel}
+            className={`${styles.toggleButton} ${level === "basic" ? styles.clicked : styles.unclicked}`}
+          >
+            입문반
+          </button>
+          <button
+            type="button"
+            onClick={toggleLevel}
+            className={`${styles.toggleButton} ${level === "advanced" ? styles.clicked : styles.unclicked}`}
+          >
+            작품반
+          </button>
+        </div>
       </label>
 
       <label>
@@ -78,6 +124,7 @@ function EnrollmentForm() {
           type="text"
           value={times[0].join(", ")}
           onChange={(e) => setTimes([[...e.target.value.split(", ")]] )}
+          className={styles.inputField}
         />
       </label>
 
@@ -87,6 +134,7 @@ function EnrollmentForm() {
           type="number"
           value={route}
           onChange={(e) => setRoute(e.target.value)}
+          className={styles.inputField}
         />
       </label>
 
@@ -96,6 +144,7 @@ function EnrollmentForm() {
           type="text"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
+          className={styles.inputField}
         />
       </label>
 
@@ -105,10 +154,11 @@ function EnrollmentForm() {
           type="text"
           value={contact}
           onChange={(e) => setContact(e.target.value)}
+          className={styles.inputField}
         />
       </label>
 
-      <button type="submit">신청하기</button>
+      <button type="submit" className={styles.submitButton}>신청하기</button>
     </form>
   );
 }

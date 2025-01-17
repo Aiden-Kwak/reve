@@ -1,0 +1,156 @@
+/* 전체 폼 스타일 */
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 카테고리 슬라이더 컨테이너 */
+.sliderContainer {
+  position: relative;
+}
+
+/* 슬라이더 스타일 */
+.slider {
+  width: 100%;
+  appearance: none;
+  height: 10px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(145deg, #e0e0e0, #ffffff);
+  border: 2px solid #7E3B98;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: linear-gradient(145deg, #ffffff, #e0e0e0);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(145deg, #e0e0e0, #ffffff);
+  border: 2px solid #7E3B98;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  background: linear-gradient(145deg, #ffffff, #e0e0e0);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.slider::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(145deg, #e0e0e0, #ffffff);
+  border: 2px solid #7E3B98;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.slider::-ms-thumb:hover {
+  transform: scale(1.2);
+  background: linear-gradient(145deg, #ffffff, #e0e0e0);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 레벨 버튼 토글 */
+.toggleButton {
+  padding: 8px 16px;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggleButton:hover {
+  background-color: #5a2973;
+}
+
+/* 버튼 클릭 시 색상 */
+.clicked {
+  background-color: #7e3b98;
+}
+
+.unclicked {
+  background-color: #ddd;
+}
+
+/* 레벨 선택 버튼 래퍼 */
+.labelWrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 입력 필드 스타일 */
+.inputField {
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.inputField:focus {
+  border-color: #7e3b98;
+  outline: none;
+}
+
+/* 시간 선택 input 스타일 */
+.timeInput {
+  width: 100%;
+}
+
+/* 신청 버튼 */
+.submitButton {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #7e3b98;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #5a2973;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #555;
+}
