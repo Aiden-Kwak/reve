@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import apiClient from "@/utils/axios";
 import styles from "./enrollment.module.css";
+import AuthGuard from "@/utils/authGuard";
+
 
 function EnrollmentForm() {
   const [category, setCategory] = useState(""); // 장르 상태
@@ -123,6 +125,7 @@ function EnrollmentForm() {
   const selectedClass = `${getCategoryLabel(category)} - ${getLevelLabel(level)}`;
 
   return (
+    <AuthGuard>
     <form onSubmit={handleSubmit} className={styles.formContainer}>
       <label>
         <p className={styles.formItem}>⭐ 선택한 수업: <span className="root-color">{selectedClass}</span></p>
@@ -245,6 +248,7 @@ function EnrollmentForm() {
 
       <button type="submit" className={styles.submitButton}>신청하기</button>
     </form>
+    </AuthGuard>
   );
 }
 
