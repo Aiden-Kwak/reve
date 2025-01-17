@@ -1,67 +1,106 @@
 .myPageContainer {
-  padding: 2rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.header {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #7e3b98;
-  margin-bottom: 1.5rem;
-}
-
-.profileContainer {
-  background-color: white;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
-}
-
-.email {
-  font-size: 1.2rem;
-  color: #333;
-}
-
-.enrollmentContainer {
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.enrollmentContainer h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.enrollmentList {
-  list-style-type: none;
-  padding: 0;
-}
-
-.enrollmentItem {
-  padding: 1rem;
-  background-color: #fafafa;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.enrollmentItem div {
-  font-size: 1rem;
-  color: #333;
-}
-
-.enrollmentItem strong {
-  color: #7e3b98;
-}
-
-.enrollmentItem span {
-  display: block;
-  margin-top: 0.5rem;
-  color: #555;
-}
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #7e3b98;
+    margin-bottom: 1.5rem;
+  }
+  
+  .profileContainer {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  }
+  
+  .email {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .enrollmentContainer {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  }
+  
+  .enrollmentContainer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .enrollmentList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .enrollmentItem {
+    padding: 1rem;
+    background-color: #fafafa;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  }
+  
+  .enrollmentItem div {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .enrollmentItem strong {
+    color: #7e3b98;
+  }
+  
+  .enrollmentItem span {
+    display: block;
+    margin-top: 0.5rem;
+    color: #555;
+  }
+  
+  /* 모바일 환경에서 글자와 요소 크기 축소 */
+  @media (max-width: 768px) {
+    .header {
+      font-size: 1.5rem; /* 헤더 텍스트 크기 축소 */
+    }
+  
+    .profileContainer {
+      padding: 0.8rem; /* 프로필 컨테이너 여백 축소 */
+    }
+  
+    .email {
+      font-size: 1rem; /* 이메일 텍스트 크기 축소 */
+    }
+  
+    .enrollmentContainer {
+      padding: 1.2rem; /* 등록 컨테이너 여백 축소 */
+    }
+  
+    .enrollmentContainer h3 {
+      font-size: 1.2rem; /* 제목 텍스트 크기 축소 */
+    }
+  
+    .enrollmentItem {
+      padding: 0.8rem; /* 항목 여백 축소 */
+    }
+  
+    .enrollmentItem div {
+      font-size: 0.9rem; /* 항목 텍스트 크기 축소 */
+    }
+  
+    .enrollmentItem strong {
+      font-size: 1rem; /* 강조 텍스트 크기 축소 */
+    }
+  
+    .enrollmentItem span {
+      font-size: 0.9rem; /* 날짜 등의 텍스트 크기 축소 */
+    }
+  }
   

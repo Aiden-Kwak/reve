@@ -23,4 +23,19 @@
     margin: 5px 0; /* 텍스트 간의 여백 */
     text-align: center; /* 텍스트 가운데 정렬 */
   }
+
+/* 모바일 화면 */
+@media (max-width: 768px) {
+    .footer {
+      padding: 10px 0; /* 상하 여백 */
+    }
+    .mobile {
+        font-size: 0.75rem;
+    }
+    .mobileLogo {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+}
+
   
