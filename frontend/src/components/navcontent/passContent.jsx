@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./pass.module.css"; // 기존 CSS 가져오기
+import { useRouter } from "next/navigation";
 
 function PassContent() {
+  const router = useRouter();
   return (
     <div className={styles.passContainer}>
       <p className={styles.head}>강의료는 어떻게 되나요?</p>
@@ -17,7 +19,10 @@ function PassContent() {
           <p className={styles.passPrice}>3만원</p>
           <p className={styles.passDetail}>상시구매가능</p>
           <p className={styles.passDetail}>한 번의 체험으로 첫걸음을 내딛어보세요</p>
-          <p className={styles.passBuyBtn}>지금 시작하기</p>
+          <p className={styles.passBuyBtn}
+          onClick={() => router.push("/class/enroll/?selectedGenre=ballet&selectedLevel=basic")}>
+            지금 시작하기
+          </p>
         </div>
         {/* 주 1회권 */}
         <div className={`${styles.passCard} ${styles.singlePass}`}>
@@ -25,7 +30,8 @@ function PassContent() {
           <p className={styles.passPrice}>12만원<span>/mo</span></p>
           <p className={styles.passDetail}>가볍게 시작하기 좋아요</p>
           <p className={styles.passDetail}>부담없이 시작하기 좋은 선택!</p>
-          <p className={styles.passBuyBtn}>지금 시작하기</p>
+          <p className={styles.passBuyBtn}
+          onClick={() => router.push("/class/enroll/?selectedGenre=ballet&selectedLevel=basic")}>지금 시작하기</p>
         </div>
         {/* 주 2회권 */}
         <div className={`${styles.passCard} ${styles.biPass}`}>
@@ -33,7 +39,8 @@ function PassContent() {
           <p className={styles.passPrice}>22만원<span>/mo</span></p>
           <p className={styles.passDetail}>1회권 대비 8.3% 할인</p>
           <p className={styles.passDetail}>효율적으로 실력을 쌓아가요</p>
-          <p className={styles.passBuyBtn}>지금 시작하기</p>
+          <p className={styles.passBuyBtn}
+          onClick={() => router.push("/class/enroll/?selectedGenre=ballet&selectedLevel=basic")}>지금 시작하기</p>
         </div>
         {/* 주 3회권 */}
         <div className={`${styles.passCard} ${styles.triPass}`}>
@@ -41,7 +48,8 @@ function PassContent() {
           <p className={styles.passPrice}>32만원<span>/mo</span></p>
           <p className={styles.passDetail}>1회권 대비 11.1% 할인</p>
           <p className={styles.passDetail}>빠른 성장과 몰입을 원한다면</p>
-          <p className={styles.passBuyBtn}>지금 시작하기</p>
+          <p className={styles.passBuyBtn}
+          onClick={() => router.push("/class/enroll/?selectedGenre=ballet&selectedLevel=basic")}>지금 시작하기</p>
         </div>
       </div>
       <div className={styles.PassNotice}>

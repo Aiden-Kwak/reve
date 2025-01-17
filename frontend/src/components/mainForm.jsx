@@ -7,12 +7,14 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
+import { useRouter } from "next/navigation";
 import styles from "./MainForm.css";
 
 function MainForm() {
   const canvasRef = useRef();
   let rotationDirection = 0.0005; // 초기 회전 방향
   let lastDirectionChangeTime = Date.now();
+  const router = useRouter();
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -141,7 +143,11 @@ function MainForm() {
       <div className="text-overlay">
         <p>대학생, 직장인을 위한,</p>
         <p>방과후 무용클래스 <span className="/root-color">Rêve</span></p>
-        <p className="apply-button">클래스 신청하기</p>
+        <p className="apply-button"
+          onClick={() => router.push("/class/enroll/?selectedGenre=ballet&selectedLevel=basic")}
+        >
+          클래스 신청하기
+        </p>
       </div>
     </div>
   );
