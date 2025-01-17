@@ -73,7 +73,7 @@ class CourseListView(APIView):
                 "day": day,
                 "time": time_slot,
                 "enrollment_count": 0  # 강의가 없으면 기본값 0으로 설정
-            } for day in ["월요일", "화요일", "수요일", "목요일", "금요일"] for time_slot in time_slots]
+            } for day in ["일요일","월요일", "화요일", "수요일", "목요일", "금요일", "토요일"] for time_slot in time_slots]
         }]
 
         # 강의가 있는 경우, 해당 강의의 시간과 신청자 수를 업데이트

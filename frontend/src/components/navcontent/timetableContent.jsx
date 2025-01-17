@@ -147,7 +147,7 @@ function TimetableContent({ schedules }) {
 
         {/* 시간 선택 버튼들 */}
         <div className={styles.scheduleTable}>
-          {["월요일", "화요일", "수요일", "목요일", "금요일"].map((day) => (
+          {["일요일","월요일", "화요일", "수요일", "목요일", "금요일", "토요일"].map((day) => (
             <div key={day} className={styles.scheduleRow}>
               <span>{day}</span>
               {["10:00-12:00", "14:00-16:00", "16:00-18:00", "19:30-21:30"].map((timeSlot) => (

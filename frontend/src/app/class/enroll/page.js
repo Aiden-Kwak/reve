@@ -43,7 +43,7 @@ function EnrollmentForm() {
     if (!contact) {
       const userEmail = ""; // 구글 로그인에서 받은 이메일로 설정
       setContact(userEmail);
-    }// 프론트에서 처리 안할래
+    }// 프론트에서 처리 안할래 남겨는둠
 
     const data = {
       category,
