@@ -26,6 +26,24 @@ export default function RootLayout({ children }) {
         <NavForm/>
         {children}
         <FooterForm/>
+        <div className="fixed-buttons">
+          <a
+            href="https://pf.kakao.com/_xfLgZn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fixed-button button-1"
+          >
+            <img src="/icon/kakao-talk.png" alt="채널 1" />
+          </a>
+          <a
+            href="https://www.instagram.com/reve.class"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fixed-button button-2"
+          >
+            <img src="/icon/instagram.png" alt="채널 1" />
+          </a>
+        </div>
       </body>
     </html>
   );
