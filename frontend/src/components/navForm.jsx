@@ -39,22 +39,30 @@ function NavForm() {
         }
     };
 
+    const getEmailPrefix = (email) => {
+        if (!email) return "";
+        const [prefix] = email.split('@');
+        return prefix;
+    };
+      
+
     return (
         <div className={styles.navContainer}>
         <div className={styles.navWrapper}>
-          <h1 className={`${styles.logo} logo-main-style`}
+            <p className={userEmail ? `${styles.navUserEmail}` : ""}>{userEmail ? getEmailPrefix(userEmail) : null}</p>
+            <h1 className={`${styles.logo} logo-main-style`}
               onClick={() => router.push("/")}
-          >Rêve
-          </h1>
-          <span className={styles.loginText}>{userEmail ? userEmail : 
-            <a
-            href="http://localhost:8000/api/accountapp/auth/login/?next=http://localhost:3000/"
-            className={styles.loginText}
+            >Rêve
+            </h1>
+            <span className={styles.loginText}>{userEmail ? null : 
+                <a
+                href="http://localhost:8000/api/accountapp/auth/login/?next=http://localhost:3000/"
+                className={styles.loginText}
             >
-            로그인
-            </a>
-        }</span>
-          {userEmail && (
+                로그인
+                </a>
+            }</span>
+            {userEmail && (
             <button className={styles.navButton} onClick={handleLogout}>
               로그아웃
             </button>

@@ -11,10 +11,6 @@ export default function Home() {
         <MainForm/>
       </main>
       <InnerNavContent/>
-      <footer className={styles.footer}>
-        <p className="logo-main-style">Rêve</p>
-        <p>COPYRIGHT (C) @Aiden-Kwak. All Rights reserved</p>
-      </footer>
     </div>
   );
 }
