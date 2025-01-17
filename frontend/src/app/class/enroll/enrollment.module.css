@@ -149,6 +149,14 @@
   color: #555;
 }
 
+.labels span {
+  padding: 0px 10px;
+  background-color: #ebe7f1;
+}
+.modern {
+  margin-left: 2rem;
+}
+
 .scheduleTable {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 5개의 열 (요일) */
@@ -172,16 +180,27 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
+/*
 .timeSlotButton:hover {
   background-color: #7e3b98;
   color: white;
-}
+}*/
 
-.selected {
+.timeSlotButton.selected {
   background-color: #7e3b98;
   color: white;
+}
+
+.formItem {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.formSubItem {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #7e3b98;
 }
 

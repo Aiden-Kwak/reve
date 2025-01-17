@@ -6,16 +6,17 @@ import apiClient from "@/utils/axios";
 import styles from "./enrollment.module.css";
 
 function EnrollmentForm() {
-  const [category, setCategory] = useState("");
-  const [level, setLevel] = useState("");
+  const [category, setCategory] = useState(""); // 장르 상태
+  const [level, setLevel] = useState(""); // 레벨 상태
   const [times, setTimes] = useState([]); // 선택된 시간들
-  const [route, setRoute] = useState(1); // 경로
+  const [route, setRoute] = useState(""); // 경로 (선택 항목으로 설정)
   const [location, setLocation] = useState(""); // 장소
+  const [pass, setPass] = useState(""); // 수강권
   const [contact, setContact] = useState(""); // 연락처
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [sliderValue, setSliderValue] = useState(0);
+  const [sliderValue, setSliderValue] = useState(0); // 슬라이더 값 초기화
 
   useEffect(() => {
     // 쿼리 파라미터가 있을 때만 설정
@@ -48,6 +49,7 @@ function EnrollmentForm() {
       category,
       level,
       times,
+      pass,
       route,
       location,
       contact,
@@ -63,7 +65,8 @@ function EnrollmentForm() {
 
   const handleSliderChange = (e) => {
     const value = e.target.value;
-    setSliderValue(value);
+    setSliderValue(value); // 슬라이더 값 업데이트
+
     if (value < 33) {
       setCategory("ballet");
     } else if (value < 67) {
@@ -93,10 +96,36 @@ function EnrollmentForm() {
     });
   };
 
+  const getCategoryLabel = (category) => {
+    switch (category) {
+      case "ballet":
+        return "발레";
+      case "modern":
+        return "현대무용";
+      case "korean":
+        return "한국무용";
+      default:
+        return "";
+    }
+  };
+
+  const getLevelLabel = (level) => {
+    switch (level) {
+      case "basic":
+        return "입문반";
+      case "advanced":
+        return "작품반";
+      default:
+        return "";
+    }
+  };
+
+  const selectedClass = `${getCategoryLabel(category)} - ${getLevelLabel(level)}`;
+
   return (
     <form onSubmit={handleSubmit} className={styles.formContainer}>
       <label>
-        카테고리:
+        <p className={styles.formItem}>⭐ 선택한 수업: <span className="root-color">{selectedClass}</span></p>
         <div className={styles.sliderContainer}>
           <input
             type="range"
@@ -109,14 +138,14 @@ function EnrollmentForm() {
           />
           <div className={styles.labels}>
             <span>발레</span>
-            <span>현대무용</span>
+            <span className={styles.modern}>현대무용</span>
             <span>한국무용</span>
           </div>
         </div>
       </label>
 
       <label>
-        레벨:
+        <br/>
         <div className={styles.labelWrapper}>
           <button
             type="button"
@@ -136,7 +165,8 @@ function EnrollmentForm() {
       </label>
 
       <label>
-        가능 시간 선택:
+        <p className={styles.formItem}>⭐ 가능 시간 선택</p>
+        <p className={styles.formSubItem}>희망하시는 모든 시간을 선택해주세요. 강사님, 다른 학생들과의 조정을 통해 빠른 클래스 개설이 가능해집니다.</p>
         <div className={styles.scheduleTable}>
           {["월요일", "화요일", "수요일", "목요일", "금요일"].map((day) => (
             <div key={day} className={styles.scheduleRow}>
@@ -159,17 +189,39 @@ function EnrollmentForm() {
       </label>
 
       <label>
-        저희 레브를 어떻게 알게 되셨나요?<br/>
-        <input
-          type="number"
+        <p className={styles.formItem}>⭐ 희망하시는 수강권을 선택해주세요!</p>
+        <select
           value={route}
-          onChange={(e) => setRoute(e.target.value)}
+          onChange={(e) => setPass(e.target.value)}
           className={styles.inputField}
-        />
+        >
+          <option value="1">1회 체험권</option>
+          <option value="2">주 1회권</option>
+          <option value="3">주 2회권</option>
+          <option value="4">주 3회권</option>
+        </select>
       </label>
 
       <label>
-        장소:
+        <p className={styles.formItem}>⭐ 저희 레브를 어떻게 알게되셨나요?</p>
+        <select
+          value={route}
+          onChange={(e) => setRoute(e.target.value)}
+          className={styles.inputField}
+        >
+          <option value="1">인스타</option>
+          <option value="2">블로그</option>
+          <option value="3">인터넷검색</option>
+          <option value="4">에브리타임</option>
+          <option value="5">지인소개</option>
+          <option value="6">재방문</option>
+          <option value="7">기타</option>
+        </select>
+      </label>
+
+      <label>
+        <p className={styles.formItem}>⭐ 어디에 거주 중이신가요?</p>
+        <p className={styles.formSubItem}>추후 지점 확장을 위한 질문으로 응답하지 않으셔도 됩니다.</p>
         <input
           type="text"
           value={location}
@@ -179,7 +231,8 @@ function EnrollmentForm() {
       </label>
 
       <label>
-        연락처:
+        <p className={styles.formItem}>⭐ 연락처</p>
+        <p className={styles.formSubItem}>연락 가능한 번호를 입력해주세요. 미입력시 가입한 이메일로 연락이 진행됩니다.</p>
         <input
           type="text"
           value={contact}
