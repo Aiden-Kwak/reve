@@ -1,0 +1,35 @@
+.qnaContainer {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    line-height: 1.6;
+  }
+  
+  .qnaHeader {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #7E3B98;
+    text-align: center;
+  }
+  
+  .qnaList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .qnaItem {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+  }
+  
+  .qnaQuestion {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .qnaAnswer {
+    color: #555;
+  }
+  
