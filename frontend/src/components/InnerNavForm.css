@@ -20,3 +20,29 @@
 .innernav-container .inner-btn.selected {
     color: #7E3B98;
 }
+
+@media (max-width: 768px) {
+    .innernav-container {
+      font-size: 1rem; /* 텍스트 크기 축소 */
+      margin: 0 2rem; /* 여백 축소 */
+    }
+  
+    .innernav-container .inner-btn {
+      font-size: 0.9rem; /* 버튼 텍스트 크기 축소 */
+      padding: 0.3rem 0.8rem; /* 버튼 여백 축소 */
+    }
+}
+
+@media (max-width: 480px) {
+    .innernav-container {
+      font-size: 0.75rem; /* 텍스트 크기 축소 */
+      margin: 0 1rem; /* 여백 축소 */
+      padding: 0px;
+      padding-top: 5px;
+    }
+  
+    .innernav-container .inner-btn {
+      font-size: 0.7rem; /* 버튼 텍스트 크기 축소 */
+      padding: 0.2rem 0.6rem; /* 버튼 여백 축소 */
+    }
+}
