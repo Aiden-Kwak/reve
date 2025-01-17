@@ -226,6 +226,7 @@ function EnrollmentForm() {
           type="text"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
+          placeholder="ex) 서대문구 신촌동"
           className={styles.inputField}
         />
       </label>
@@ -237,6 +238,7 @@ function EnrollmentForm() {
           type="text"
           value={contact}
           onChange={(e) => setContact(e.target.value)}
+          placeholder="ex) 010-1234-5678"
           className={styles.inputField}
         />
       </label>
