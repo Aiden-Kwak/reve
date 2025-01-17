@@ -1,0 +1,108 @@
+.balletContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.teacherCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 60%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.teacherImage img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+
+.tag {
+    border-radius: 3rem;
+    padding: 2px 15px;
+    margin: 0 0.5rem;
+    background-color: #F59FEA;
+    color: white;
+    font-weight: 600;
+}
+
+.teacherName {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* 설명부 */
+
+.classDetail {
+    margin: 2rem auto;
+    max-width: 800px;
+    line-height: 1.6;
+  }
+  
+  .classBasicInfo,
+  .classPerformInfo,
+  .classCourseRecommend {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .classTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #7E3B98;
+  }
+  
+  .classHead {
+    margin-bottom: 1rem;
+  }
+  
+  .classHead p {
+    margin: 0.5rem 0;
+    color: #555;
+  }
+  
+  .classStep {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+    border-left: 3px solid #7E3B98;
+  }
+  
+  .classStep p {
+    margin: 0.5rem 0;
+    color: #444;
+  }
+  
+  .classStep p::before {
+    content: "• ";
+    font-weight: bold;
+    color: #7E3B98;
+  }
+
+  .classBasicInfo:hover,
+  .classPerformInfo:hover,
+  .classCourseRecommend:hover {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .notice {
+    color: #7E3B98;
+  }
+  

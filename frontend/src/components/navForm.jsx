@@ -42,7 +42,10 @@ function NavForm() {
     return (
         <div className={styles.navContainer}>
         <div className={styles.navWrapper}>
-          <h1 className={`${styles.logo} logo-main-style`}>Rêve</h1>
+          <h1 className={`${styles.logo} logo-main-style`}
+              onClick={() => router.push("/")}
+          >Rêve
+          </h1>
           <span className={styles.loginText}>{userEmail ? userEmail : 
             <a
             href="http://localhost:8000/api/accountapp/auth/login/?next=http://localhost:3000/"
