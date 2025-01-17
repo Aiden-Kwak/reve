@@ -1,14 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from 'next/navigation';
 import styles from "./timetable.module.css";
 
 function TimetableContent({ schedules }) {
   const [selectedGenre, setSelectedGenre] = useState("ballet");
   const [sliderValue, setSliderValue] = useState(0); // 슬라이더 위치 초기화
   const [selectedLevel, setSelectedLevel] = useState("basic"); // 기본값: 입문반
+  const router = useRouter();
 
-  // 슬라이더 변경 핸들러
+  // 슬라이더 변경
   const handleSliderChange = (e) => {
     const value = e.target.value;
     setSliderValue(value);
@@ -22,10 +24,15 @@ function TimetableContent({ schedules }) {
     }
   };
 
-  // 토글 버튼 변경 핸들러
+  // 토글 버튼 변경
   const toggleLevel = () => {
     setSelectedLevel((prev) => (prev === "basic" ? "advanced" : "basic"));
   };
+
+  const handleEnrollClick = () => {
+    router.push(`/class/enroll?selectedGenre=${selectedGenre}&selectedLevel=${selectedLevel}`);
+  };
+  
 
   return (
     <div className={styles.timetableContainer}>
@@ -52,7 +59,11 @@ function TimetableContent({ schedules }) {
       {/* 선택된 시간표 */}
       <div className={styles.schedule}>
         <div className={styles.scheduleHeader}>
-          <h3>{schedules[selectedGenre][selectedLevel].title}</h3>
+          <div className={styles.scheduleTitleSubmit}>
+            <h3>{schedules[selectedGenre][selectedLevel].title}</h3>
+            <p className={styles.classSubmit} onClick={handleEnrollClick}>신청하기</p>
+          </div>
+          
           <div>
             <button
               onClick={toggleLevel}
