@@ -43,4 +43,30 @@ canvas {
   background-color: #ffffff; /* 버튼 호버 시 배경색 */
   color: #7E3B98; /* 버튼 호버 시 텍스트 색상 */
 }
-  
+
+@media (max-width: 768px) {
+  .text-overlay {
+    font-size: 1.5rem; /* 모바일 환경에서 텍스트 크기 축소 */
+  }
+  .text-overlay p {
+    font-size: 1.3rem; /* 모바일 환경에서 부가 텍스트 크기 축소 */
+  }
+  .text-overlay .apply-button {
+    font-size: 0.9rem; /* 모바일 환경에서 버튼 텍스트 크기 축소 */
+  }
+}
+
+@media (max-width: 480px) {
+  .text-overlay {
+    font-size: 1rem; /* 모바일 환경에서 텍스트 크기 축소 */
+  }
+  .text-overlay p {
+    font-size: 1rem; /* 모바일 환경에서 부가 텍스트 크기 축소 */
+  }
+  .text-overlay .apply-button {
+    font-size: 0.75rem; /* 모바일 환경에서 버튼 텍스트 크기 축소 */
+  }
+  .canvas-container {
+    height: 30vh!important;
+  }
+}
