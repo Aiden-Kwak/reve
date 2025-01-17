@@ -8,10 +8,10 @@ import styles from "./enrollment.module.css";
 function EnrollmentForm() {
   const [category, setCategory] = useState("");
   const [level, setLevel] = useState("");
-  const [times, setTimes] = useState([["10:00", "12:00"]]);
-  const [route, setRoute] = useState(1); // integer
-  const [location, setLocation] = useState(""); // optional
-  const [contact, setContact] = useState("");
+  const [times, setTimes] = useState([]); // 선택된 시간들
+  const [route, setRoute] = useState(1); // 경로
+  const [location, setLocation] = useState(""); // 장소
+  const [contact, setContact] = useState(""); // 연락처
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -40,7 +40,7 @@ function EnrollmentForm() {
     e.preventDefault();
 
     if (!contact) {
-      const userEmail = "user@example.com"; // TODO: 구글 로그인에서 받은 이메일로 설정
+      const userEmail = "user@example.com"; // 구글 로그인에서 받은 이메일로 설정
       setContact(userEmail);
     }
 
@@ -63,6 +63,7 @@ function EnrollmentForm() {
 
   const handleSliderChange = (e) => {
     const value = e.target.value;
+    setSliderValue(value);
     if (value < 33) {
       setCategory("ballet");
     } else if (value < 67) {
@@ -73,7 +74,23 @@ function EnrollmentForm() {
   };
 
   const toggleLevel = () => {
-    setLevel((prev) => (prev === "basic" ? "performance" : "basic"));
+    setLevel((prev) => (prev === "basic" ? "advanced" : "basic"));
+  };
+
+  const handleTimeSelection = (day, timeSlot) => {
+    const newTime = { day, time: timeSlot };
+    setTimes((prevTimes) => {
+      const timeIndex = prevTimes.findIndex(
+        (item) => item.day === day && item.time === timeSlot
+      );
+      if (timeIndex === -1) {
+        return [...prevTimes, newTime]; // 새로 선택된 시간 추가
+      } else {
+        const updatedTimes = [...prevTimes];
+        updatedTimes.splice(timeIndex, 1); // 이미 선택된 시간은 제거
+        return updatedTimes;
+      }
+    });
   };
 
   return (
@@ -119,17 +136,30 @@ function EnrollmentForm() {
       </label>
 
       <label>
-        시간:
-        <input
-          type="text"
-          value={times[0].join(", ")}
-          onChange={(e) => setTimes([[...e.target.value.split(", ")]] )}
-          className={styles.inputField}
-        />
+        가능 시간 선택:
+        <div className={styles.scheduleTable}>
+          {["월요일", "화요일", "수요일", "목요일", "금요일"].map((day) => (
+            <div key={day} className={styles.scheduleRow}>
+              <span>{day}</span>
+              {["10:00-12:00", "14:00-16:00", "16:00-18:00", "19:30-21:30"].map((timeSlot) => (
+                <button
+                  type="button"
+                  key={timeSlot}
+                  className={`${styles.timeSlotButton} ${times.some(
+                    (t) => t.day === day && t.time === timeSlot
+                  ) ? styles.selected : ""}`}
+                  onClick={() => handleTimeSelection(day, timeSlot)}
+                >
+                  {timeSlot}
+                </button>
+              ))}
+            </div>
+          ))}
+        </div>
       </label>
 
       <label>
-        경로:
+        저희 레브를 어떻게 알게 되셨나요?<br/>
         <input
           type="number"
           value={route}
