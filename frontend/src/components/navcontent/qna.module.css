@@ -33,3 +33,52 @@
     color: #555;
   }
   
+
+  @media (max-width: 768px) {
+    .qnaContainer {
+      padding: 1.5rem;
+    }
+  
+    .qnaHeader {
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+    }
+  
+    .qnaItem {
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+    }
+  
+    .qnaQuestion {
+      font-size: 0.9rem;
+    }
+  
+    .qnaAnswer {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .qnaContainer {
+      padding: 1rem;
+    }
+  
+    .qnaHeader {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+  
+    .qnaItem {
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+    }
+  
+    .qnaQuestion {
+      font-size: 0.8rem;
+    }
+  
+    .qnaAnswer {
+      font-size: 0.75rem;
+    }
+  }
+  
