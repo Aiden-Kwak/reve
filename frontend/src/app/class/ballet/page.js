@@ -6,7 +6,7 @@ export default function BalletPage() {
         {/* 카드 영역 구분용 */}
         <div className={styles.teacherCard}>
           <div className={`${styles.teacherImage} teacherCard-item`}>
-            <img src="/teacherProfile/modern.jpeg" alt="ballet" />
+            <img src="/teacherProfile/ballet.jpeg" alt="ballet" />
           </div>
           <div className={`${styles.teacherInfo} teacherCard-item`}>
             <p className={styles.teacherName}><span className={`${styles.tag} ${styles.balletTag}`}>발 레</span>이현지</p>
