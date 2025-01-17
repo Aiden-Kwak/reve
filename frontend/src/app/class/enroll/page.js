@@ -56,7 +56,7 @@ function EnrollmentForm() {
     };
 
     try {
-      const response = await apiClient.post("/api/timemanageapp/enroll/", data);
+      const response = await apiClient.post("/api/timemanageapp/courses/enroll/", data);
       console.log("성공적으로 제출됨:", response.data);
     } catch (error) {
       console.error("신청 실패:", error.response?.data || error.message);
