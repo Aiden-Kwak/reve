@@ -1,8 +1,8 @@
-import styles from "./ballet.module.css";
+import styles from "../class.module.css";
 
 export default function BalletPage() {
     return (
-      <div className={styles.balletContainer}>
+      <div className={styles.classContainer}>
         {/* 카드 영역 구분용 */}
         <div className={styles.teacherCard}>
           <div className={`${styles.teacherImage} teacherCard-item`}>
