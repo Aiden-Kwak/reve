@@ -49,9 +49,13 @@ function NavForm() {
     return (
         <div className={styles.navContainer}>
         <div className={styles.navWrapper}>
-            <p className={userEmail ? `${styles.navUserEmail}` : ""}>{userEmail ? getEmailPrefix(userEmail) : null}</p>
+            <p className={userEmail ? `${styles.navUserEmail}` : ""}
+                onClick={() => router.push("/mypage")}
+            >
+                {userEmail ? getEmailPrefix(userEmail) : null}
+            </p>
             <h1 className={`${styles.logo} logo-main-style`}
-              onClick={() => router.push("/")}
+                onClick={() => router.push("/")}
             >Rêve
             </h1>
             <span className={styles.loginText}>{userEmail ? null : 

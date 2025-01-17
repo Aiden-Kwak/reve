@@ -84,3 +84,27 @@ class CourseListView(APIView):
                         item["enrollment_count"] = course.enrollment_count
 
         return Response(result, status=status.HTTP_200_OK)
+    
+
+class UserProfileView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        user = request.user
+        
+        enrollments = CourseEnrollment.objects.filter(user=user)
+        
+        enrollment_data = []
+        for enrollment in enrollments:
+            enrollment_data.append({
+                'course': str(enrollment.course),
+                'pass_type': dict(Course.PASS_CHOICES).get(enrollment.pass_type),
+                'enrollment_date': enrollment.enrollment_date,
+                'payed': enrollment.payed,
+                'times': enrollment.course.times
+            })
+
+        return Response({
+            'email': user.email,
+            'enrollments': enrollment_data
+        }, status=200)

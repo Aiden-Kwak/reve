@@ -1,0 +1,67 @@
+.myPageContainer {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #7e3b98;
+  margin-bottom: 1.5rem;
+}
+
+.profileContainer {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.email {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.enrollmentContainer {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.enrollmentContainer h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.enrollmentList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.enrollmentItem {
+  padding: 1rem;
+  background-color: #fafafa;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.enrollmentItem div {
+  font-size: 1rem;
+  color: #333;
+}
+
+.enrollmentItem strong {
+  color: #7e3b98;
+}
+
+.enrollmentItem span {
+  display: block;
+  margin-top: 0.5rem;
+  color: #555;
+}
+  
