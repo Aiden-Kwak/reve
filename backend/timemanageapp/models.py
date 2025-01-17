@@ -9,7 +9,7 @@ class Course(models.Model):
     
     LEVEL_CHOICES = [
         ('basic', '입문반'),
-        ('performance', '작품반'),
+        ('advanced', '작품반'),
     ]
 
     PASS_CHOICES = [

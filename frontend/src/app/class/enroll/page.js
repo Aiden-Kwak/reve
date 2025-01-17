@@ -9,9 +9,9 @@ function EnrollmentForm() {
   const [category, setCategory] = useState(""); // 장르 상태
   const [level, setLevel] = useState(""); // 레벨 상태
   const [times, setTimes] = useState([]); // 선택된 시간들
-  const [route, setRoute] = useState(""); // 경로 (선택 항목으로 설정)
-  const [location, setLocation] = useState(""); // 장소
-  const [pass, setPass] = useState(""); // 수강권
+  const [route, setRoute] = useState("1"); // 경로
+  const [location, setLocation] = useState("");
+  const [pass_type, setPass] = useState("1"); // 수강권
   const [contact, setContact] = useState(""); // 연락처
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -49,7 +49,7 @@ function EnrollmentForm() {
       category,
       level,
       times,
-      pass,
+      pass_type,
       route,
       location,
       contact,
@@ -191,7 +191,7 @@ function EnrollmentForm() {
       <label>
         <p className={styles.formItem}>⭐ 희망하시는 수강권을 선택해주세요!</p>
         <select
-          value={route}
+          value={pass_type}
           onChange={(e) => setPass(e.target.value)}
           className={styles.inputField}
         >
