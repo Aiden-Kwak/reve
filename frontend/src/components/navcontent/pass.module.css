@@ -125,3 +125,86 @@
     color: #7E3B98;
 }
 
+@media (max-width: 768px) {
+    .head {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+  
+    .eventNotice {
+      font-size: 0.9rem;
+      padding: 0.8rem;
+    }
+  
+    .passCard {
+      padding: 1rem;
+    }
+  
+    .passTitle {
+      font-size: 1.3rem;
+    }
+  
+    .passPrice {
+      font-size: 1.5rem;
+    }
+  
+    .passDetail {
+      font-size: 0.9rem;
+    }
+  
+    .passBuyBtn {
+      padding: 0.4rem 1rem;
+      font-size: 0.9rem;
+    }
+  
+    .PassNotice {
+      font-size: 0.8rem;
+      padding: 1rem;
+    }
+  }
+  
+  /* 반응형 스타일: 480px */
+  @media (max-width: 480px) {
+    .head {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+  
+    .eventNotice {
+      font-size: 0.75rem;
+      padding: 0.6rem;
+    }
+  
+    .passList {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  
+    .passCard {
+      padding: 0.8rem;
+    }
+  
+    .passTitle {
+      font-size: .9rem;
+    }
+  
+    .passPrice {
+      font-size: .9rem;
+      margin-bottom: .5rem;
+    }
+  
+    .passDetail {
+      font-size: 0.75rem;
+    }
+  
+    .passBuyBtn {
+      padding: 0.3rem 0.8rem;
+      font-size: 0.75rem;
+      margin-top: .5rem;
+    }
+  
+    .PassNotice {
+      font-size: 0.7rem;
+      padding: 0.8rem;
+    }
+  }
