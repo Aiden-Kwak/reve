@@ -9,7 +9,7 @@ export default function BalletPage() {
             <img src="/teacherProfile/modern.jpeg" alt="ballet" />
           </div>
           <div className={`${styles.teacherInfo} teacherCard-item`}>
-            <p className={styles.teacherName}><span className={styles.tag}>발 레</span>이현지</p>
+            <p className={styles.teacherName}><span className={`${styles.tag} ${styles.balletTag}`}>발 레</span>이현지</p>
             <div className={styles.teacherInfoDetail}>
               <p>- 고양예술고등학교 무용과 졸업</p>
               <p>- 동덕여자대학교 무용과 재학</p>

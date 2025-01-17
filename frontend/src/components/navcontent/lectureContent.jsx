@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation"; // useRouter 훅 가져오기
+import { useRouter } from "next/navigation";
 import "./LectureContent.css";
 
 const teacherData = [
@@ -11,7 +11,7 @@ const teacherData = [
 ];
 
 function LectureContent() {
-  const router = useRouter(); // useRouter 인스턴스 생성
+  const router = useRouter();
   const totalSlots = 4;
   const items = [...teacherData];
 
@@ -29,7 +29,7 @@ function LectureContent() {
                 key={item.id}
                 onClick={() => router.push("/class/story")}
             >
-              Reve Story
+              Rêve Story
             </div>
           ) : (
             <div

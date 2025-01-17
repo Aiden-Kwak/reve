@@ -23,18 +23,35 @@
 .teacherImage img {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
+    border-radius: 20%;
     object-fit: cover;
-    margin-right: 1rem;
+    margin-right: 2rem;
 }
 
 .tag {
     border-radius: 3rem;
     padding: 2px 15px;
-    margin: 0 0.5rem;
-    background-color: #F59FEA;
+    margin: 0 0.8rem;
+    margin-bottom: .5rem!important;
     color: white;
     font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.balletTag {
+    background-color: #F59FEA;
+}
+.koreaTag {
+  background-color: #FF5555;
+}
+.modernTag {
+  background-color: #877BF5;
+}
+.reveTag {
+  background-color: #7E3B98;
+}
+.reveDetail {
+  margin-top: 1.5rem;
 }
 
 .teacherName {
