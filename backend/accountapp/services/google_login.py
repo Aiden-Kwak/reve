@@ -16,7 +16,7 @@ class GoogleRawLoginFlowService:
     def __init__(self):
         self.client_id = settings.GOOGLE_OAUTH2_CLIENT_ID
         self.client_secret = settings.GOOGLE_OAUTH2_CLIENT_SECRET
-        self.redirect_uri = "http://localhost:8000/api/accountapp/auth/callback/"
+        self.redirect_uri = settings.GOOGLE_OAUTH2_REDIRECT_URI # 서버측 .env에만 넣어둔 상태임 
 
     def _generate_state_token(self, length=30):
         rand = SystemRandom()

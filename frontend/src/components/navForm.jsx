@@ -44,7 +44,10 @@ function NavForm() {
         const [prefix] = email.split('@');
         return prefix;
     };
-      
+
+    const apiServerUrl = process.env.NEXT_PUBLIC_API_SERVER_URL;
+    const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
+    const loginUrl = `${apiServerUrl}/api/accountapp/auth/login/?next=${clientUrl}`;
 
     return (
         <div className={styles.navContainer}>
@@ -60,7 +63,7 @@ function NavForm() {
             </h1>
             <span className={styles.loginText}>{userEmail ? null : 
                 <a
-                href="http://localhost:8000/api/accountapp/auth/login/?next=http://localhost:3000/"
+                href={loginUrl}
                 className={styles.loginText}
             >
                 로그인

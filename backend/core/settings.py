@@ -137,14 +137,18 @@ SOCIALACCOUNT_PROVIDERS = {
 GOOGLE_OAUTH2_CLIENT_ID = os.getenv("DJANGO_GOOGLE_OAUTH2_CLIENT_ID")
 GOOGLE_OAUTH2_CLIENT_SECRET = os.getenv("DJANGO_GOOGLE_OAUTH2_CLIENT_SECRET")
 GOOGLE_OAUTH2_PROJECT_ID= os.getenv("DJANGO_GOOGLE_OAUTH2_PROJECT_ID")
-
+GOOGLE_OAUTH2_REDIRECT_URI = os.getenv("GOOGLE_OAUTH2_REDIRECT_URI", "http://localhost:8000/api/accountapp/auth/callback/")
 ### CORS ###
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "http://reve-dance.kr",
+    "https://reve-dance.kr"
 ]
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
+    "http://reve-dance.kr",
+    "https://reve-dance.kr"
 ]
 
 SESSION_COOKIE_SAMESITE = "Lax"
