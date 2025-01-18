@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    env_file:
+      - .env
+    command: gunicorn --bind 0.0.0.0:8000 core.wsgi:application
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    env_file:
+      - ./frontend/.env
+    command: npm start
