@@ -8,18 +8,15 @@ RUN npm install -g pnpm
 WORKDIR /app
 
 # Copy only package files for dependency installation
-COPY ./frontend/package.json ./  # Copy package.json
-COPY ./frontend/pnpm-lock.yaml ./  # Copy pnpm-lock.yaml if using pnpm
-COPY ./frontend/package-lock.json ./  # Optional for npm users
-
-# Ensure the working directory is clean before installing dependencies
-RUN rm -rf /app/pnpm
+COPY frontend/package.json /app/package.json
+COPY frontend/pnpm-lock.yaml /app/pnpm-lock.yaml
+COPY frontend/package-lock.json /app/package-lock.json
 
 # Install dependencies
 RUN pnpm install
 
 # Copy the rest of the frontend code
-COPY ./frontend .
+COPY frontend /app
 
 # Build the application
 RUN pnpm build

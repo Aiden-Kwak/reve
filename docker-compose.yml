@@ -20,7 +20,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/app/src # 디렉토리 이름 같아서 덮어지는걸수 있음.
+      - ./frontend:/app/frontend # 디렉토리 이름 같아서 덮어지는걸수 있음.
     env_file:
       - ./frontend/.env
     command: npm start
