@@ -1,21 +1,28 @@
-# Frontend Dockerfile
+# Dockerfile.client
 FROM node:18
 
-# Set work directory
+# Install pnpm globally
+RUN npm install -g pnpm
+
 WORKDIR /app
 
-# Copy package.json and install dependencies
-COPY package*.json ./
-RUN npm install
+# Copy only package files for dependency installation
+COPY frontend/pnpm-lock.yaml .
+COPY frontend/package.json .
+COPY frontend/package-lock.json .  # Optional, if used alongside pnpm
+COPY frontend/pnpm-workspace.yaml .  # Optional, if using monorepos
 
-# Copy the rest of the application
-COPY . .
+# Install dependencies with pnpm
+RUN pnpm install
+
+# Copy the rest of the frontend code
+COPY frontend .
 
 # Build the application
-RUN npm run build
+RUN pnpm build
 
-# Expose the port Next.js runs on
+# Expose the port for the frontend
 EXPOSE 3000
 
-# Command to start the server
-CMD ["npm", "start"]
+# Start the application
+CMD ["pnpm", "start"]
