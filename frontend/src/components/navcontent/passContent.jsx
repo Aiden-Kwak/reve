@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import styles from "./pass.module.css"; // 기존 CSS 가져오기
 import { useRouter } from "next/navigation";
