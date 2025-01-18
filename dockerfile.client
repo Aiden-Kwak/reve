@@ -8,7 +8,7 @@ WORKDIR /app
 
 # Copy only package files for dependency installation
 COPY frontend/package.json .
-COPY frontend/pnpm-lock.yaml .  # Include if using pnpm
+COPY ./frontend/pnpm-lock.yaml ./  # Include if using pnpm
 COPY frontend/package-lock.json .
 
 # Install dependencies with pnpm
