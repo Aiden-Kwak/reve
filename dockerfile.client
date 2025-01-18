@@ -7,10 +7,9 @@ RUN npm install -g pnpm
 WORKDIR /app
 
 # Copy only package files for dependency installation
-COPY frontend/pnpm-lock.yaml .
 COPY frontend/package.json .
-COPY frontend/package-lock.json .  # Optional, if used alongside pnpm
-COPY frontend/pnpm-workspace.yaml .  # Optional, if using monorepos
+COPY frontend/pnpm-lock.yaml .  # Include if using pnpm
+COPY frontend/package-lock.json .
 
 # Install dependencies with pnpm
 RUN pnpm install
