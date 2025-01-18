@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import apiClient from "@/utils/axios";
 import styles from "./enrollment.module.css";
@@ -126,6 +126,7 @@ function EnrollmentForm() {
 
   return (
     <AuthGuard>
+    <Suspense fallback={<div>Loading...</div>}>
     <form onSubmit={handleSubmit} className={styles.formContainer}>
       <label>
         <p className={styles.formItem}>⭐ 선택한 수업: <span className="root-color">{selectedClass}</span></p>
@@ -248,6 +249,7 @@ function EnrollmentForm() {
 
       <button type="submit" className={styles.submitButton}>신청하기</button>
     </form>
+    </Suspense>
     </AuthGuard>
   );
 }
