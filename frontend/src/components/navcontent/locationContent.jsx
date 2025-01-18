@@ -1,3 +1,5 @@
+"use client"; // googleMap에 뭔가 종속성이 있는것 같음. createContext 관련?
+
 import React from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import styles from "./location.module.css";
