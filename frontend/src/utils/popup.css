@@ -1,0 +1,61 @@
+/* 기본 팝업 스타일 */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px; /* 화면 크기 작은 곳에서 여백 추가 */
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 400px; /* 데스크탑에서의 최대 너비 */
+  width: 100%; /* 부모 요소에 맞춰 가로폭을 100%로 */
+  box-sizing: border-box; /* 패딩을 포함한 너비 계산 */
+}
+.popup-content button{
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #877BF5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.popup-content button:hover{
+    background: #7E3B98;
+}
+  
+  .popup p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  /* 모바일 환경에서의 팝업 스타일 */
+  @media (max-width: 480px) {
+    .popup-content {
+      max-width: 90%; /* 모바일에서의 최대 너비 */
+      padding: 15px;  /* 모바일에서 여백 줄이기 */
+    }
+  
+    .popup p {
+      font-size: 0.75rem; /* 모바일에서 텍스트 크기 줄이기 */
+      padding: 10px; /* 텍스트 주위 여백 추가 */
+    }
+    .popup-content button{
+      font-size: 0.75rem;
+    }
+  }
+  
