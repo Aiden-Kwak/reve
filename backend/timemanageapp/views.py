@@ -97,6 +97,7 @@ class UserProfileView(APIView):
         enrollment_data = []
         for enrollment in enrollments:
             enrollment_data.append({
+                'id': enrollment.id,
                 'course': str(enrollment.course),
                 'pass_type': dict(Course.PASS_CHOICES).get(enrollment.pass_type),
                 'enrollment_date': enrollment.enrollment_date,
@@ -108,3 +109,26 @@ class UserProfileView(APIView):
             'email': user.email,
             'enrollments': enrollment_data
         }, status=200)
+    
+
+class CourseEnrollmentCancelView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request, enrollment_id):
+        try:
+            enrollment = CourseEnrollment.objects.get(id=enrollment_id, user=request.user)
+
+            if enrollment.payed:
+                return Response({"error": "이미 결제된 강의는 직접 문의해주세요. 빠르게 처리해드리겠습니다!"}, status=status.HTTP_400_BAD_REQUEST)
+
+            # 신청 삭제
+            enrollment.delete()
+
+            # 연관된 Course의 지원자 수 감소
+            enrollment.course.enrollment_count -= 1
+            enrollment.course.save()
+
+            return Response({"message": "신청이 취소되었습니다."}, status=status.HTTP_200_OK)
+
+        except CourseEnrollment.DoesNotExist:
+            return Response({"error": "신청 내역을 찾을 수 없습니다."}, status=status.HTTP_404_NOT_FOUND)

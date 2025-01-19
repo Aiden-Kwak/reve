@@ -4,6 +4,13 @@
     border-radius: 0.5rem;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
   }
+.myPageContainer h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #7e3b98;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
   
   .header {
     font-size: 2rem;
@@ -64,6 +71,16 @@
     margin-top: 0.5rem;
     color: #555;
   }
+
+  .enrollmentItem p span{
+    background-color: #d7d0e3;
+    color: #171717;
+    padding: 0.2rem;
+    border-radius: 0.6rem;
+    text-align: center;
+    max-width: 300px;
+    font-weight: bold;
+  }
   
   /* 모바일 환경에서 글자와 요소 크기 축소 */
   @media (max-width: 768px) {
@@ -76,31 +93,201 @@
     }
   
     .email {
-      font-size: 1rem; /* 이메일 텍스트 크기 축소 */
+      font-size: 0.75rem; /* 이메일 텍스트 크기 축소 */
     }
   
     .enrollmentContainer {
       padding: 1.2rem; /* 등록 컨테이너 여백 축소 */
+      font-size: 0.75rem;
     }
   
     .enrollmentContainer h3 {
-      font-size: 1.2rem; /* 제목 텍스트 크기 축소 */
+      font-size: 1rem; /* 제목 텍스트 크기 축소 */
     }
   
     .enrollmentItem {
       padding: 0.8rem; /* 항목 여백 축소 */
+    }
+
+    .enrollmentItem p {
+      font-size: 0.75rem;
     }
   
     .enrollmentItem div {
       font-size: 0.9rem; /* 항목 텍스트 크기 축소 */
     }
   
-    .enrollmentItem strong {
-      font-size: 1rem; /* 강조 텍스트 크기 축소 */
-    }
-  
     .enrollmentItem span {
       font-size: 0.9rem; /* 날짜 등의 텍스트 크기 축소 */
     }
+
+    .myPageContainer h2 {
+      font-size: 1rem;
+    }
+    .enrollmentContainer h3 {
+      font-size: 0.75rem;
+    }
+
+    .enrollmentItem p span{
+      font-size: 0.75rem;
+      padding: 0.1rem;
+      border-radius: .5rem;
+      font-weight: bold;
+    }
   }
   
+  /* 확인 모달 */
+.confirmModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirmModalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%; /* 모바일에서 반응형 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.confirmModalContent p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.confirmButton,
+.cancelButton {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+.cancelButton {
+  margin-left: auto;
+}
+
+.confirmButton {
+  background-color: #555;
+  color: white;
+}
+
+.confirmButton:hover {
+  background-color: #333;
+}
+
+.cancelButton {
+  background-color: #5a4e70;
+  color: white;
+}
+
+.cancelButton:hover {
+  background-color: #7e3b98;
+}
+
+.notice {
+  background-color: #FFE9F4;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* 모바일 스타일 */
+@media (max-width: 480px) {
+  .confirmModalContent {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .confirmButton,
+  .cancelButton {
+    margin-top: 2rem;
+    font-size: 0.6rem;
+    padding: 6px 10px;
+  }
+}
+
+/* 팝업 배경 */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 다른 요소 위에 렌더링 */
+  padding: 20px; /* 모바일에서 내부 여백을 추가 */
+  box-sizing: border-box;
+}
+
+/* 팝업 내용 */
+.popupContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* 그림자 추가 */
+  text-align: center;
+  max-width: 400px; /* 데스크톱에서 최대 크기 제한 */
+  width: 100%; /* 화면 크기에 맞게 조정 */
+  box-sizing: border-box;
+}
+
+/* 팝업 메시지 텍스트 */
+.popupContent p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* 닫기 버튼 */
+.closePopupButton {
+  padding: 10px 20px;
+  background-color: #877BF5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.closePopupButton:hover {
+  background-color: #7e3b98;
+}
+
+/* 모바일 환경 대응 */
+@media (max-width: 480px) {
+  .popupContent {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .popupContent p {
+    font-size: 0.75rem;
+  }
+
+  .closePopupButton {
+    font-size: 0.75rem;
+    padding: 8px 16px;
+  }
+}
