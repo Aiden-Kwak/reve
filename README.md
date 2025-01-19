@@ -1,36 +1,37 @@
-# reve
+# Reve
 
-### 작업가능시간:
-- 목: 17시 ~ 24시, 01시 (약 7시간 가능) 
-- 금: 17시 ~ 24시 (약 6시간)
-- 토: 00시 ~ 12시 (12시간 가능)
-- 데드라인: 토요일 13시
-- 대략 순작업시간 24시간 가정, cicd없이 ec2 직접올리고 nginx로 프록시. 네트워크 구성 -3시간
-- 프론트 구성 10시간, 서버 db스키마 고안 및 구현 10시간.  
+### 대학생, 직장인을 위한 방과후 무용클래스
+
+**작업기간**: 2025.01.16 ~ 2025.01.18  
+**스택**: DRF, Next.js, three.js, Docker Compose, EC2, Route 53  
 
 
-### TODO 0118 02시 기준
-- 유저 지원현황 
-- 마이페이지
-- 강의 강사 카드 화면축소시 깨짐
-- 그 외 모바일 친화도 개선
-- 글자 크기에 신경쓸 것.
-- 도메인 구입, ec2 점검, nginx 연결
+[사이트 바로가기](https://reve-dance.kr)
 
-### TODO 0118 05시 기준
-- 절대 다 못한다 우선순위정하자
-1) 강사카드 모바일화면 해결 (1시간)
-2) 모바일 부터 (2시간)
-3) 에러 메세지 해결 (30분)
-4) 우선 배포할 것 (2시간)
+---
 
-### TODO 0118 08시 기준
-- 모바일 얼추해결완료
-- 접근불가 페이지 권한제거 필요
-- 이대로 바로 배포하고 재검토 시작.
-- 맞다 밑에 카카오채널이랑 인스타띄워야됨 
+### 화면
 
-### 악
-- 고민점
-1. 타임테이블 다수 사용자 동시접근해 공유자원 사용시 데드락 가능성.
+#### **강의 페이지**
+<div style="display: flex; justify-content: space-between;">
+  <img src="preview/1.jpeg" alt="메인 페이지 1" width="45%" />
+  <img src="preview/2.jpeg" alt="메인 페이지 2" width="45%" />
+</div>
 
+#### **클래스/시간 선택 페이지**
+<div style="display: flex; justify-content: space-between;">
+  <img src="preview/3.jpeg" alt="클래스 선택 1" width="45%" />
+  <img src="preview/4.jpeg" alt="클래스 선택 2" width="45%" />
+</div>
+
+#### **강의료 안내 페이지**
+<div style="display: flex; justify-content: space-between;">
+  <img src="preview/5.jpeg" alt="신청 완료 화면 1" width="45%" />
+  <img src="preview/6.jpeg" alt="신청 완료 화면 2" width="45%" />
+</div>
+
+#### **강의장소 및 QnA**
+<div style="display: flex; justify-content: space-between;">
+  <img src="preview/7.jpeg" alt="신청 완료 화면 1" width="45%" />
+  <img src="preview/8.jpeg" alt="신청 완료 화면 2" width="45%" />
+</div>
