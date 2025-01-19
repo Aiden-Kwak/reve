@@ -15,6 +15,9 @@ function EnrollmentForm({ selectedGenre, selectedLevel }) {
   const [contact, setContact] = useState(""); // 연락처
   const [sliderValue, setSliderValue] = useState(0); // 슬라이더 값 초기화
 
+  const [popupMessage, setPopupMessage] = useState(""); // 팝업 메시지
+  const [showPopup, setShowPopup] = useState(false); // 팝업 표시 여부
+
   useEffect(() => {
     // 초기 슬라이더 값 설정
     if (selectedGenre === "ballet") {
@@ -47,8 +50,11 @@ function EnrollmentForm({ selectedGenre, selectedLevel }) {
     try {
       const response = await apiClient.post("/api/timemanageapp/courses/enroll/", data);
       console.log("성공적으로 제출됨:", response.data);
+      setPopupMessage("신청완료. 마이페이지에서 내역을 확인하세요.");
+      setShowPopup(true);
     } catch (error) {
-      console.error("신청 실패:", error.response?.data || error.message);
+      setPopupMessage("이미 신청된 강의입니다. 마이페이지에서 내역을 확인하세요.");
+      setShowPopup(true);
     }
   };
 
@@ -107,6 +113,11 @@ function EnrollmentForm({ selectedGenre, selectedLevel }) {
       default:
         return "";
     }
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+    setPopupMessage("");
   };
 
   const selectedClass = `${getCategoryLabel(category)} - ${getLevelLabel(level)}`;
@@ -255,6 +266,17 @@ function EnrollmentForm({ selectedGenre, selectedLevel }) {
           신청하기
         </button>
       </form>
+      {/* 팝업 */}
+      {showPopup && (
+        <div className={styles.popup}>
+          <div className={styles.popupContent}>
+            <p>{popupMessage}</p>
+            <button onClick={closePopup} className={styles.closePopupButton}>
+              닫기
+            </button>
+          </div>
+        </div>
+      )}
     </AuthGuard>
   );
 }
