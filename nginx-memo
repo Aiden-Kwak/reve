@@ -1,0 +1,52 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name reve-dance.kr www.reve-dance.kr;
+
+    # 모든 HTTP 요청을 HTTPS로 리디렉션
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl ipv6only=on;
+    server_name reve-dance.kr www.reve-dance.kr;
+
+    ssl_certificate /etc/letsencrypt/live/reve-dance.kr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/reve-dance.kr/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # /api로 안넘겨서 ㅇㅈㄹ인거같아제발
+    location /api/ {
+        proxy_pass http://localhost:8000/api/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /admin/ {
+        proxy_pass http://localhost:8000/admin/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+# 기본 서버 설정 (리디렉션이 아닌 404 오류 리턴)
+server {
+    listen 80;
+    listen [::]:80;
+    server_name _;  # 기본 서버 (위의 서버블록에서 처리되지 않은 도메인에 대해)
+    return 404;
+}
