@@ -32,6 +32,24 @@ function EnrollmentForm({ selectedGenre, selectedLevel }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    let minTimesRequired = 1; // 기본값
+    if (pass_type === "3") {
+      minTimesRequired = 2; // 주 2회권
+    } else if (pass_type === "4") {
+      minTimesRequired = 3; // 주 3회권
+    }
+
+    if (times.length < minTimesRequired) {
+      const requiredMessage =
+        minTimesRequired === 1
+          ? "적어도 하나의 시간을 선택해주세요!"
+          : `적어도 ${minTimesRequired}개의 시간을 선택해주세요!`;
+      setPopupMessage(requiredMessage); // 동적으로 팝업 메시지 설정
+      setShowPopup(true);
+      return; // 제출 차단
+    }
+
+
     if (!contact) {
       const userEmail = ""; // 구글 로그인에서 받은 이메일로 설정
       setContact(userEmail);
