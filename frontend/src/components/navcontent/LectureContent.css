@@ -46,6 +46,9 @@
     image-rendering: -o-crisp-edges; /* Opera */
     image-rendering: -webkit-optimize-contrast; /* Webkit (비표준) */
   }
+  .teacher-image .reve-story{
+    height: 4rem!important;
+  }
   
   .empty-slot {
     background: linear-gradient(45deg, #7E3B98, #A020F0,#877BF5,#F59FEA,#ffe9f4);
@@ -61,6 +64,10 @@
     border-radius: 8px;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     animation: gradientFlow 8s ease infinite; 
+  }
+
+  .empty-slot img{
+    height: 10rem;
   }
 
   @keyframes gradientFlow {
@@ -84,5 +91,16 @@
     .teacher-grid {
       gap: 5px;
     }
+
+    .empty-slot img{
+      height: 6rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+  .empty-slot img{
+    height: 4rem;
+  }
 }
   

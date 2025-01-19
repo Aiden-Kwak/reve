@@ -31,6 +31,12 @@
   flex: 1; /* 가운데 배치 */
 }
 
+.logo img {
+  height: 3rem;
+  /* 이미지 중앙정렬 */
+  vertical-align: middle;
+}
+
 .navButton {
   background-color: #7E3B98; /* 버튼 배경색 */
   color: #ffffff; /* 텍스트 색상 */
@@ -79,5 +85,10 @@
   .navUserEmail {
     padding: 6px 12px;
     font-size: 0.75rem;
+  }
+  .logo img {
+    height: 2rem;
+    /* 이미지 중앙정렬 */
+    vertical-align: middle;
   }
 }

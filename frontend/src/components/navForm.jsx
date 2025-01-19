@@ -59,7 +59,7 @@ function NavForm() {
             </p>
             <h1 className={`${styles.logo} logo-main-style`}
                 onClick={() => router.push("/")}
-            >Rêve
+            ><img src="logo_noback.png" alt="logo" />
             </h1>
             <span className={styles.loginText}>{userEmail ? null : 
                 <a

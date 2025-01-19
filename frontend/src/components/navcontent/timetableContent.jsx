@@ -144,6 +144,9 @@ function TimetableContent({ schedules }) {
             📌 모든 수업은 <span className="root-color">80분 수업</span>과{" "}
             <span className="root-color">30분 자율 커뮤니티</span> 모임으로 구성됩니다.
         </p>
+        <p className={styles.notice}>
+            📌 시간선택과 강의신청은 "신청하기"를 눌러 진행해주세요!
+        </p>
 
         {/* 시간 선택 버튼들 */}
         <div className={styles.scheduleTable}>

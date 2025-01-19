@@ -29,7 +29,7 @@ function LectureContent() {
                 key={item.id}
                 onClick={() => router.push("/class/story")}
             >
-              Rêve Story
+              <img src="whiteLogo_noback.png" alt="empty" />
             </div>
           ) : (
             <div
